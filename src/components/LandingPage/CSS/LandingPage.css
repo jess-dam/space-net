@@ -1,0 +1,49 @@
+*{
+    background: black;
+    color: white;
+}
+
+.content-box{
+    max-width: 2000px;
+    margin: auto;
+    display:flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding: 100px;
+}
+
+.title{
+    font-size: 100px;
+    text-align: center;
+}
+
+.sub-text{
+    font-size: 50px;
+    text-align: center;
+    padding: 50px;
+}
+
+.dropdown{
+    padding: 50px;
+}
+
+.dropdown-box{
+    max-height: 60px;
+    padding: 20px;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: baseline;
+}
+
+.go-button{
+    background-color: #12e1e1;
+    border-radius: 5px;
+    border: #12e1e1;
+    color: white;
+    padding: 10px;
+    padding-right: 30px;
+    padding-left: 30px;
+}
+
