@@ -1,0 +1,6 @@
+.wrapper {
+    background-image: url('crater.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
