@@ -1,24 +1,35 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Navbar from './components/Navbar/Navbar'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import LandingPage from './components/Content/LandingPage/LandingPage'
+import Mars from './components/Content/Mars/Mars'
+import Asteroids from './components/Content/Asteroids/Asteroids'
+import Urgent from './components/Content/Urgent/Urgent'
+import Apod from './components/Content/Apod/Apod'
+import Eonet from './components/Content/Eonet/Eonet'
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Router>
+        <Navbar />
+        <Switch>
+          <Route path="/landingPage"><LandingPage /></Route>
+          <Route path="/mars"><Mars /></Route>
+          <Route path="/asteroids"><Asteroids /></Route>
+          <Route path="/urgent"><Urgent /></Route>
+          <Route path="/apod"><Apod /></Route>
+          <Route path="/eonet"><Eonet /></Route>
+        </Switch>
+      </Router>
     </div>
   );
 }
