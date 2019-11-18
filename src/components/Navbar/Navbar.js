@@ -2,10 +2,15 @@ import React from 'react'
 import {
   Link
 } from "react-router-dom";
+import styles from './CSS/Navbar.module.css'
 
 function Navbar () {
   return (
-    <div>
+    <div className={styles['body']}>
+      <div className={styles['logo-wrapper']}>
+        <p className={styles['logo']}>LOGO HERE</p>
+      </div>
+      <div className={styles['navbar']}>
       <Link to="/homePage">
         <p>HomePage</p>
       </Link>
@@ -24,6 +29,7 @@ function Navbar () {
       <Link to="/eonet">
         <p>Eonet</p>
       </Link>
+      </div>
     </div>
   )
 }
