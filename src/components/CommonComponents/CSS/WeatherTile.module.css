@@ -1,0 +1,21 @@
+.border {
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 3vh 3vw;
+}
+
+h2 {
+    align-self: flex-start;
+}
+
+p {
+    padding: 5px 5px ;
+}
+
+.weather-details {
+    display: flex;
+    border: 2px solid black;
+}
