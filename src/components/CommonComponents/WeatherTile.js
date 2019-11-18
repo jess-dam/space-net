@@ -6,7 +6,7 @@ function WeatherTile ({ solString, data }) {
   console.log(data)
   return (
     <div className={styles['border']}>
-      <h1>Some date I guess</h1>
+      <h1>{data[sol].Last_UTC}</h1>
       <div>
         <svg width="163" height="127" viewBox="0 0 163 127" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="131.5" cy="32.5" r="31.5" fill="#F2EA23"/>
@@ -14,7 +14,6 @@ function WeatherTile ({ solString, data }) {
         </svg>
       </div>
       <h2>Sol: {sol}</h2>
-      <h3>{data[sol].Last_UTC}</h3>
       <div className={styles['weather-details']}>
         <div>
           <h4>Temp:</h4>

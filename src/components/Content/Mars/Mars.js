@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import WeatherTile from './../../CommonComponents/WeatherTile'
+import styles from './../CSS/Mars.module.css'
 
 function Mars () {
   const [data, setData] = useState()
@@ -17,7 +18,7 @@ function Mars () {
   }, [])
 
   return (
-    <div>
+    <div className={styles['wrapper']}>
       {
         data && data.sol_keys.map(sol =>
           <WeatherTile
