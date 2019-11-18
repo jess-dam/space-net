@@ -4,10 +4,9 @@ import Navbar from './components/Navbar/Navbar'
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
-import LandingPage from './components/Content/LandingPage/LandingPage'
+import HomePage from './components/Content/HomePage/HomePage'
 import Mars from './components/Content/Mars/Mars'
 import Asteroids from './components/Content/Asteroids/Asteroids'
 import Urgent from './components/Content/Urgent/Urgent'
@@ -22,7 +21,7 @@ function App() {
       <Router>
         <Navbar />
         <Switch>
-          <Route path="/landingPage"><LandingPage /></Route>
+          <Route path="/homePage"><HomePage /></Route>
           <Route path="/mars"><Mars /></Route>
           <Route path="/asteroids"><Asteroids /></Route>
           <Route path="/urgent"><Urgent /></Route>

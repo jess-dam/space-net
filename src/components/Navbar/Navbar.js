@@ -6,8 +6,8 @@ import {
 function Navbar () {
   return (
     <div>
-      <Link to="/landingPage">
-        <p>LandingPage</p>
+      <Link to="/homePage">
+        <p>HomePage</p>
       </Link>
       <Link to="/mars">
         <p>Mars</p>
