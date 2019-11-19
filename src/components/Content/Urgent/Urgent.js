@@ -3,11 +3,13 @@ import axios from 'axios'
 import UrgentInformationBox from './../../CommonComponents/UrgentInformationBox'
 
 function Urgent () {
+
   const [data, setData] = useState()
   const [solarFlare, setSolarFlare] = useState()
   const [geomagneticStorm, setGeomagneticStorm] = useState()
   const [notificationsResults, setNotificationsResults] = useState()
-
+  const [startIndex, setStartIndex] = useState()
+  const [newMessageBody, setNewMessageBody] = useState()
 
   useEffect(() => {
     const fetchData = async () => {
@@ -46,30 +48,37 @@ function Urgent () {
     notificationsResults[0].messageBody.indexOf("##Events")
     )
   )
-  
-  // const findIndices = (notificationsResults) {
-
-  // }
 
   return (
     <div>
+      <h1>Notifications</h1>
       {
-        notificationsResults && notificationsResults[0] && notificationsResults[0].messageID &&
-        notificationsResults[0].messageType && (
-          <div>
-            <h1>aaa</h1>
+        // notificationsResults && notificationsResults[0] && notificationsResults[0].messageID &&
+        // notificationsResults[0].messageType && notificationsResults.key(
+        //   notificationsResults.messageID
+        // ).map( notification => 
+        //   <div>
+        //     <h1>Notifications</h1>
+        //     <UrgentInformationBox
+        //       key = {notificationsResults[0].messageID}
+        //       messageType = {notificationsResults[0].messageType}
+        //       timeOccurred = {notificationsResults[0].messageIssueTime}
+        //       information = {((notificationsResults[0].messageBody).slice(
+        //         (notificationsResults[0].messageBody.indexOf("## Summary:") + 11),
+        //         notificationsResults[0].messageBody.indexOf("##Events")
+        //       ))}
+        //     />
+        //   </div>
+        // )
+        notificationsResults && notificationsResults.map(notificationResult => (
+          <>
             <UrgentInformationBox
-              key = {notificationsResults[0].messageID}
-              messageType = {notificationsResults[0].messageType}
-              timeOccurred = {notificationsResults[0].messageIssueTime}
-              information = {((notificationsResults[0].messageBody).slice(
-                (notificationsResults[0].messageBody.indexOf("## Summary:") + 1),
-                notificationsResults[0].messageBody.indexOf("##Events")
-              ))}
+              messageType = {notificationResult.messageType}
+              timeOccurred = {notificationResult.messageIssueTime}
+              information = {notificationResult.messageBody}
             />
-          </div>
-        )
-      }
+          </>
+        ))}
     </div>
   )
 }
