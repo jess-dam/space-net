@@ -20,7 +20,7 @@ function App() {
   return (
     <div>
       <Router>
-        {/* <Navbar /> */}
+        {/* <Navbar />  I put this in each page since it does not want to show on the landing page*/}
         <Switch>
           <Route exact path="/"><LandingPage /></Route>
           <Route path="/homePage"><Navbar /><HomePage /></Route>
