@@ -21,21 +21,23 @@ function Asteroids () {
     fetchData()
   }, [])
 
+  // data && data.near_earth_objects && (console.log(data.near_earth_objects[`2019-11-17`][0].name))
   return (
     <div>
-      <h1>Welcome to Asteroids</h1>
       {
-        asteroidDates.map(date =>
-          <div>
+        data && data.near_earth_objects && Object.keys(data.near_earth_objects).map(date =>
+          <>
             <h1>{date}</h1>
             <AsteroidObject
               date={date}
-              data={data}
+              data={data.near_earth_objects[`${date}`]}
             />
-          </div>
+          </>
         )
       }
-    </div>
+      </div>
+
+
   )
 }
 
