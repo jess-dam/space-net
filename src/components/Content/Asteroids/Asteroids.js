@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import AsteroidObject from './AsteroidObject'
 
 function Asteroids () {
   const [data, setData] = useState(null)
+  const asteroidDates = []
   useEffect(() => {
     const fetchData = async () => {
       const results = await axios(
@@ -10,12 +12,29 @@ function Asteroids () {
       )
       setData(results.data)
       console.log(results)
+      for(let date in results.data.near_earth_objects){
+        asteroidDates.push(date)
+      }
+
+      console.log(asteroidDates)
     }
     fetchData()
   }, [])
+
   return (
     <div>
-      WELCOME TO Asteroids
+      <h1>Welcome to Asteroids</h1>
+      {
+        asteroidDates.map(date =>
+          <div>
+            <h1>{date}</h1>
+            <AsteroidObject
+              date={date}
+              data={data}
+            />
+          </div>
+        )
+      }
     </div>
   )
 }
