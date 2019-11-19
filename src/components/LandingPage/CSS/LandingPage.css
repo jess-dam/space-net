@@ -1,7 +1,8 @@
-*{
+/* body{
     background: black;
+    background-size: stretch;
     color: white;
-}
+} */
 
 .content-box{
     max-width: 2000px;
@@ -9,7 +10,10 @@
     display:flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    padding: 100px;
+    padding: 70px;
+    padding-top: 200px;
+    justify-content: center;
+    align-items: center;
 }
 
 .title{
@@ -34,7 +38,7 @@
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;
-    align-items: baseline;
+    align-items: center;
 }
 
 .go-button{

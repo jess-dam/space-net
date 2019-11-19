@@ -6,9 +6,11 @@ import './CSS/LandingPage.css'
 
 function LandingPage(){
     return(
-        <div className='context-box'>
-            <img src='../../../logo/spacenet-logo.png' alt='logo' width='300' height='300'/>
+        <div className='content-box background'>
+            <img src='../../../logo/spacenet-logo.png' alt='logo' width='150' height='150'/>
             <h1 className='title'>Welcome to spaceNET</h1>
+            <br></br>
+            <br></br>
             <div className='dropdown-box'>
                 <h4 className='sub-text'>What would you like to explore?</h4>
                 <DropdownButton id="dropdown-navigator" title="explore..." className='dropdown' variant='dark'>
