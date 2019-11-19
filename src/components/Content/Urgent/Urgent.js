@@ -47,9 +47,9 @@ function Urgent () {
     )
   )
   
-  const findIndices = (notificationsResults) {
-    
-  }
+  // const findIndices = (notificationsResults) {
+
+  // }
 
   return (
     <div>
