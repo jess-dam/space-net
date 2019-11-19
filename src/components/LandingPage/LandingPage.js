@@ -6,8 +6,9 @@ import './CSS/LandingPage.css'
 
 function LandingPage(){
     return(
-        <div className='content-box background'>
-            <img src='../../../logo/spacenet-logo.png' alt='logo' width='150' height='150'/>
+        <div className='content-box background-box'>
+            <div className='logo'></div>
+            {/* <img src='../../../logo/spacenet-logo.png' alt='logo' width='150' height='150'/> */}
             <h1 className='title'>Welcome to spaceNET</h1>
             <br></br>
             <br></br>
