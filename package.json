@@ -7,12 +7,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
     "@fortawesome/react-fontawesome": "^0.1.7",
     "axios": "^0.19.0",
-<<<<<<< HEAD
     "bootstrap": "^4.3.1",
-=======
-    "google-map-react": "^1.1.5",
-    "mapbox-gl": "^1.5.0",
->>>>>>> 791e5519b63b6e920d760e49c72d08ad70242fd3
     "react": "^16.12.0",
     "react-bootstrap": "^1.0.0-beta.15",
     "react-dom": "^16.12.0",
