@@ -33,10 +33,17 @@ function Apod () {
             {/* add a feature to expand the full text on the click */}
             <h4>{data.explanation}</h4>
             <p></p>
-            <YouTube
-              videoId={data.url.split('/')[(data.url.split('/').length - 1)]}
-              opts={opts}
-            />
+            {
+              (data && data.media === 'video') 
+              ? (<YouTube
+                    videoId={data.url.split('/')[(data.url.split('/').length - 1)]}
+                    opts={opts}
+                  />) 
+              : (<img 
+                  src={data.url}
+                ></img>)
+            }
+
           </div>
         )
       }
