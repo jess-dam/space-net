@@ -40,17 +40,17 @@ function Earthquackes () {
           height: '100vh',
           width: '100vw'
         }}
-      > 
+      >
         <Layer type="symbol" id="marker" layout={{ 'icon-image': 'fire-station-15' }}>
           {
             data && numberOfEvents && numberOfEvents.map(event =>
-              <Feature 
+              <Feature
                 key={event}
                 coordinates={[data.events[event].geometries['0'].coordinates[0], data.events[event].geometries['0'].coordinates[1]]}
               />
             )
           }
-        </Layer>   
+        </Layer>
       </Map>
       </div>
     </div>
