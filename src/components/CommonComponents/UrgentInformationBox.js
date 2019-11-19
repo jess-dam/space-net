@@ -1,6 +1,6 @@
 import React from 'react'
 
-function UrgentInformationBoxes ({ notificationsResults, messageType, timeOccurred, information }) {
+function UrgentInformationBox ({ notificationsResults, messageType, timeOccurred, information }) {
 
     return (
 
@@ -8,16 +8,10 @@ function UrgentInformationBoxes ({ notificationsResults, messageType, timeOccurr
         
             <h1>Notifications</h1>
 
-            {
-                notificationsResults && notificationsResults[0] &&
-                notificationsResults[0].messageID && (
-                    <>
-                        <h2>Message type: {messageType}</h2>
-                        <h2>Time occurred: {timeOccurred}</h2>
-                        <h2>Information: {information}</h2>
-                    </>
-                )
-            }
+            <h2>Message type: {messageType}</h2>
+            <h2>Time occurred: {timeOccurred}</h2>
+            <h2>Information: {information}</h2>
+
 
         </>
 
@@ -25,4 +19,4 @@ function UrgentInformationBoxes ({ notificationsResults, messageType, timeOccurr
 
 }
 
-export default UrgentInformationBoxes
+export default UrgentInformationBox
