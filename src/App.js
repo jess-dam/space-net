@@ -20,9 +20,9 @@ function App() {
   return (
     <div>
       <Router>
+          <Navbar />
         <Switch>
           {/* <Route exact path="/"><LandingPage /></Route> */}
-          <Navbar />
           <Route path="/homePage"><HomePage /></Route>
           <Route path="/mars"><Mars /></Route>
           <Route path="/asteroids"><Asteroids /></Route>
