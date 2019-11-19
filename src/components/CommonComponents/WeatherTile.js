@@ -21,18 +21,38 @@ function WeatherTile ({ solString, data }) {
           <p>Min: {data[sol].AT.mn}</p>
           <p>Max: {data[sol].AT.mx}</p>
         </div>
-        <div>
+        {
+          data[sol] && data[sol].HWS
+            ? (
+              <>
+                <div>
+                  <h4>Wind:</h4>
+                  <p>Av: {data[sol].HWS.av}</p>
+                  <p>Min: {data[sol].HWS.mn}</p>
+                  <p>Max: {data[sol].HWS.mx}</p>
+                </div>
+                <div>
+                  <h4>Pressure:</h4>
+                  <p>Av: {data[sol].PRE.av}</p>
+                  <p>Min: {data[sol].PRE.mn}</p>
+                  <p>Max: {data[sol].PRE.mx}</p>
+                </div>
+              </>
+            )
+            : <p style={{ fontSize: '24px', color: 'red' }}>{sol}</p>
+        }
+        {/* <div>
           <h4>Wind:</h4>
           <p>Av: {data[sol].HWS.av}</p>
           <p>Min: {data[sol].HWS.mn}</p>
           <p>Max: {data[sol].HWS.mx}</p>
         </div>
         <div>
-          <h4>Wind:</h4>
+          <h4>Pressure:</h4>
           <p>Av: {data[sol].PRE.av}</p>
           <p>Min: {data[sol].PRE.mn}</p>
           <p>Max: {data[sol].PRE.mx}</p>
-        </div>
+        </div> */}
       </div>
     </div>
   )

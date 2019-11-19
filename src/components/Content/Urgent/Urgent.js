@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import UrgentInformationBox from './../../CommonComponents/UrgentInformationBox'
 
 function Urgent () {
-  const [data, setData] = useState(null)
-  const [solarFlare, setSolarFlare] = useState(null)
-  const [geomagneticStorm, setGeomagneticStorm] = useState(null)
-  const [notifications, setNotifications] = useState(null)
 
+  const [data, setData] = useState()
+  const [solarFlare, setSolarFlare] = useState()
+  const [geomagneticStorm, setGeomagneticStorm] = useState()
+  const [notificationsResults, setNotificationsResults] = useState()
+  const [startIndex, setStartIndex] = useState()
+  const [newMessageBody, setNewMessageBody] = useState()
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,14 +28,57 @@ function Urgent () {
       const notificationsResults = await axios(
         'https://api.nasa.gov/DONKI/notifications?startDate=2019-11-10&endDate=2019-11-17&type=all&api_key=Enoih2fwvokMm0hHR3AwXnV4vw1I3tamZ6GBM5O4'
       )
-      setNotifications(notificationsResults.data)
-      console.log(notificationsResults)
+      setNotificationsResults(notificationsResults.data)
+      // console.log(notificationsResults)
+      // console.log(notificationsResults.data)
+      // console.log(notificationsResults.data[0])
+      // console.log(notificationsResults.data[0].messageType)
+      // console.log(typeof notificationsResults.data[0].messageType)
+      // console.log(notificationsResults.data[0].messageIssueTime)
+      // console.log((notificationsResults.data[0].messageBody).split("Summary"))
+      // console.log(notificationsResults.data[0].messageID)
     }
     fetchData()
   }, [])
+
+  console.log(notificationsResults)
+  notificationsResults && notificationsResults[0] && notificationsResults[0].messageType && (
+    console.log("MESSAGETYPE"+notificationsResults[0].messageType + "INFORMATION" + notificationsResults[0].messageBody
+    + "SUMMARY INDEX" + notificationsResults[0].messageBody.indexOf("## Summary:") + "EVENTS INDEX" + 
+    notificationsResults[0].messageBody.indexOf("##Events")
+    )
+  )
+
   return (
     <div>
-      WELCOME TO Urgent
+      <h1>Notifications</h1>
+      {
+        // notificationsResults && notificationsResults[0] && notificationsResults[0].messageID &&
+        // notificationsResults[0].messageType && notificationsResults.key(
+        //   notificationsResults.messageID
+        // ).map( notification => 
+        //   <div>
+        //     <h1>Notifications</h1>
+        //     <UrgentInformationBox
+        //       key = {notificationsResults[0].messageID}
+        //       messageType = {notificationsResults[0].messageType}
+        //       timeOccurred = {notificationsResults[0].messageIssueTime}
+        //       information = {((notificationsResults[0].messageBody).slice(
+        //         (notificationsResults[0].messageBody.indexOf("## Summary:") + 11),
+        //         notificationsResults[0].messageBody.indexOf("##Events")
+        //       ))}
+        //     />
+        //   </div>
+        // )
+        notificationsResults && notificationsResults.map(notificationResult => (
+          <>
+            <UrgentInformationBox
+              messageType = {notificationResult.messageType}
+              timeOccurred = {notificationResult.messageIssueTime}
+              information = {notificationResult.messageBody}
+            />
+          </>
+        ))}
     </div>
   )
 }

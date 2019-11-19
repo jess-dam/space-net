@@ -1,21 +1,17 @@
-import React, { useEffect, useState } from 'react'
-import axios from 'axios'
+import React from 'react'
+import Wildfires from './Wildfires/Wildfires'
+import Volcanoes from './Volcanoes/Volcanoes'
+import TempExtremes from './TempExtremes/TempExtremes'
+import Earthquackes from './Earthquackes/Earthquackes'
 
 function Eonet () {
-  const [data, setData] = useState(null)
-  useEffect(() => {
-    const fetchData = async () => {
-      const results = await axios(
-        '#'
-      )
-      setData(results.data)
-      console.log(results)
-    }
-    fetchData()
-  }, [])
+
   return (
     <div>
-      WELCOME TO Eonet
+      <Earthquackes />
+      {/* <Wildfires />
+      <Volcanoes />
+      <TempExtremes /> */}
     </div>
   )
 }

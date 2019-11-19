@@ -20,15 +20,15 @@ function App() {
   return (
     <div>
       <Router>
-        {/* <Navbar />  I put this in each page since it does not want to show on the landing page*/}
+          <Navbar />
         <Switch>
-          <Route exact path="/"><LandingPage /></Route>
-          <Route path="/homePage"><Navbar /><HomePage /></Route>
-          <Route path="/mars"><Navbar /><Mars /></Route>
-          <Route path="/asteroids"><Navbar /><Asteroids /></Route>
-          <Route path="/urgent"><Navbar /><Urgent /></Route>
-          <Route path="/apod"><Navbar /><Apod /></Route>
-          <Route path="/eonet"><Navbar /><Eonet /></Route>
+          {/* <Route exact path="/"><LandingPage /></Route> */}
+          <Route path="/homePage"><HomePage /></Route>
+          <Route path="/mars"><Mars /></Route>
+          <Route path="/asteroids"><Asteroids /></Route>
+          <Route path="/urgent"><Urgent /></Route>
+          <Route path="/apod"><Apod /></Route>
+          <Route path="/eonet"><Eonet /></Route>
         </Switch>
       </Router>
     </div>

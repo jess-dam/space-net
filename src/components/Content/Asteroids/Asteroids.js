@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import AsteroidObject from './AsteroidObject'
 
-import styles from './CSS/Asteroids.module.css'
-
 function Asteroids () {
   const [data, setData] = useState(null)
   const asteroidDates = []
@@ -28,13 +26,13 @@ function Asteroids () {
     <div>
       {
         data && data.near_earth_objects && Object.keys(data.near_earth_objects).map(date =>
-          <div className={styles['asteroid-day-box']}>
+          <>
             <h1>{date}</h1>
             <AsteroidObject
               date={date}
               data={data.near_earth_objects[`${date}`]}
             />
-          </div>
+          </>
         )
       }
       </div>
