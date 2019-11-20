@@ -13,11 +13,13 @@ function Urgent () {
 
   const dateState = useSelector(storeState => storeState)
   console.log(dateState)
+  console.log(dateState.dateReducer.today)
+
 
   useEffect(() => {
     const fetchData = async () => {
       const notificationsApiResponse = await axios(
-        `https://api.nasa.gov/DONKI/notifications?startDate=${dateState.sevenDaysAgo}&endDate=${dateState.today}&type=all&api_key=Enoih2fwvokMm0hHR3AwXnV4vw1I3tamZ6GBM5O4`
+        `https://api.nasa.gov/DONKI/notifications?startDate=${dateState.dateReducer.sevenDaysAgo}&endDate=${dateState.dateReducer.today}&type=all&api_key=Enoih2fwvokMm0hHR3AwXnV4vw1I3tamZ6GBM5O4`
       )
 
       const notificationData = [...notificationsApiResponse.data] // entire notification array of objects
