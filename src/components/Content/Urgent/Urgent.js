@@ -8,7 +8,6 @@ function Urgent () {
   const [solarFlare, setSolarFlare] = useState()
   const [geomagneticStorm, setGeomagneticStorm] = useState()
   const [notificationsResults, setNotificationsResults] = useState()
-  const [informationResults, setInformationResults] = useState([])
 
   useEffect(() => {
     const fetchData = async () => {
@@ -16,20 +15,16 @@ function Urgent () {
         'https://api.nasa.gov/DONKI/notifications?startDate=2019-11-10&endDate=2019-11-20&type=all&api_key=Enoih2fwvokMm0hHR3AwXnV4vw1I3tamZ6GBM5O4'
       )
 
-      const notificationData = [...notificationsApiResponse.data]
-      Array.isArray(notificationData)
+      const notificationData = [...notificationsApiResponse.data] // entire notification array of objects
 
       notificationData.map(notification => {
-        let summaryItem = notification.messageBody.split("##")
+        let summaryItem = notification.messageBody.split("##") // array of split strings
         summaryItem.filter(summaryElement => {
-          if (summaryElement.includes("Summary:")) {
-            notification.messageBody = summaryElement
-            console.log(notification.messageBody)
+          if (summaryElement.includes("Summary:")) { // searching for summary string in array
+            notification.messageBody = summaryElement // stripping message to summary
           }
         })
       })
-
-      console.log(notificationData)
 
       setNotificationsResults(notificationData)
 
