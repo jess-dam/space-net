@@ -3,13 +3,18 @@ import axios from 'axios'
 import ReactMapboxGl, { Layer, Feature, Marker, Popup } from 'react-mapbox-gl';
 import styles from './../../CSS/Eonet.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFire, faMountain, faIgloo, faWind } from '@fortawesome/free-solid-svg-icons'
+import { faFire, faMountain, faIgloo, faWind, faQuestion } from '@fortawesome/free-solid-svg-icons'
 import uuid from 'react-uuid'
 
 function Events () {
   const [data, setData] = useState(null)
   const [listOfEvents, setListOfEvents] = useState(null)
   const [selectedEvent, setSelectedEvent] = useState(null)
+  const [viewport, setViewport] = useState({
+    latitude: 45.4211,
+    longitude: -75.6903,
+    zoom: [3]
+  });
 
   useEffect(() => {
     const fetchData = async () => {
@@ -45,15 +50,15 @@ function Events () {
         allEvents: [...temArrAllEvents],
         wildfires: [...tempArrWildfire],
         volcanoes: [...tempArrVolcanoes],
-        icebergs: [...tempArrStorms],
+        icebergs: [...tempArrIcebergs],
         storms: [...tempArrStorms]
       })
     }
     fetchData()
     const listener = e => {
       if (e.key === 'Escape') {
-        setSelectedEvent(null)
         e.preventDefault()
+        setSelectedEvent(null)
       }
     }
     window.addEventListener('keydown', listener)
@@ -63,37 +68,45 @@ function Events () {
     accessToken:
       'pk.eyJ1Ijoic2Vwc2FyIiwiYSI6ImNrMzV1cDBlaTBtZTMzY3BlMGtxZHgxbDgifQ.BAO2QYMsaX-CmTanG19_GQ'
   });
-
-  // data && listOfEvents && console.log(listOfEvents.allEvents)
-  // data && listOfEvents && listOfEvents.allEvents.forEach( event => {
-  //   if (typeof(event.geometries[0].coordinates[0]) === 'number') 
-  //     console.log(event.geometries[0].coordinates[0])
-  // })
   
+  const handleIconChoice = (num) => {
+    if (listOfEvents.wildfires.indexOf(num) !== -1) {
+      console.log('fire')
+      return faFire
+    } else if (listOfEvents.volcanoes.indexOf(num) !== -1) {
+      console.log('volcano')
+      return faMountain
+    } else if (listOfEvents.icebergs.indexOf(num) !== -1) {
+      return faIgloo
+    } else if (listOfEvents.storms.indexOf(num) !== -1) {
+      return faWind
+    } else {
+      return faQuestion
+    }
+  }
   return (
     <div>
-      <div className={styles['map-wrapper']}>
       <Map
+        {...viewport}
         style="mapbox://styles/mapbox/satellite-v8"
         containerStyle={{
           height: '100vh',
           width: '100vw'
         }}
-      > 
+        > 
         {
           data && listOfEvents && listOfEvents.allEvents.map(num => 
             <Marker
-              key={uuid()}
-              coordinates={[data.events[num].geometries[0].coordinates[0], data.events[num].geometries[0].coordinates[1]]}
+            key={uuid()}
+            coordinates={[data.events[num].geometries[0].coordinates[0], data.events[num].geometries[0].coordinates[1]]}
             >
               <button
                 onClick={e => {
-                  setSelectedEvent(num)
                   e.preventDefault()
-                  e.stopPropagation()
+                  setSelectedEvent(num)
                 }}
               >
-                <FontAwesomeIcon icon={faFire} />
+                <FontAwesomeIcon icon={handleIconChoice(num)} />
               </button>
             </Marker>
           )
@@ -110,10 +123,9 @@ function Events () {
           ) : (null)
         }
       </Map>
-      </div>
     </div>
   )
 }
-//how to stop the refresh, how to add 4th order of ternary
+
 {/* { (listOfEvents.wildfires.indexOf(event) !== -1) ? (<FontAwesomeIcon icon={faFire} />) : (<FontAwesomeIcon icon={faMountain} />)} */}
 export default Events
