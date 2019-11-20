@@ -1,17 +1,12 @@
 import React from 'react'
-import Wildfires from './Wildfires/Wildfires'
-import Volcanoes from './Volcanoes/Volcanoes'
-import TempExtremes from './TempExtremes/TempExtremes'
-import Earthquackes from './Earthquackes/Earthquackes'
+import Events from './Events/Events'
 
 function Eonet () {
 
   return (
     <div>
-      <Earthquackes />
-      {/* <Wildfires />
-      <Volcanoes />
-      <TempExtremes /> */}
+      <Events />
+
     </div>
   )
 }

@@ -4,10 +4,9 @@ import ReactMapboxGl, { Layer, Feature, Marker, Popup } from 'react-mapbox-gl';
 import styles from './../../CSS/Eonet.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFire, faMountain, faIgloo, faWind } from '@fortawesome/free-solid-svg-icons'
-import Volcanoes from '../Volcanoes/Volcanoes';
 import uuid from 'react-uuid'
 
-function Earthquackes () {
+function Events () {
   const [data, setData] = useState(null)
   const [listOfEvents, setListOfEvents] = useState(null)
   const [selectedEvent, setSelectedEvent] = useState(null)
@@ -51,6 +50,13 @@ function Earthquackes () {
       })
     }
     fetchData()
+    const listener = e => {
+      if (e.key === 'Escape') {
+        setSelectedEvent(null)
+        e.preventDefault()
+      }
+    }
+    window.addEventListener('keydown', listener)
   }, [])
   
   const Map = ReactMapboxGl({
@@ -68,22 +74,23 @@ function Earthquackes () {
     <div>
       <div className={styles['map-wrapper']}>
       <Map
-        style="mapbox://styles/mapbox/streets-v9"
+        style="mapbox://styles/mapbox/satellite-v8"
         containerStyle={{
           height: '100vh',
           width: '100vw'
         }}
       > 
         {
-          data && listOfEvents && listOfEvents.allEvents.map(event => 
+          data && listOfEvents && listOfEvents.allEvents.map(num => 
             <Marker
               key={uuid()}
-              coordinates={[data.events[event].geometries[0].coordinates[0], data.events[event].geometries[0].coordinates[1]]}
+              coordinates={[data.events[num].geometries[0].coordinates[0], data.events[num].geometries[0].coordinates[1]]}
             >
               <button
-                onClick={(e) => {
+                onClick={e => {
+                  setSelectedEvent(num)
                   e.preventDefault()
-                  setSelectedEvent(event)
+                  e.stopPropagation()
                 }}
               >
                 <FontAwesomeIcon icon={faFire} />
@@ -91,11 +98,22 @@ function Earthquackes () {
             </Marker>
           )
         }
+        {
+          selectedEvent ? (
+            <Popup
+            coordinates={[data.events[selectedEvent].geometries[0].coordinates[0], data.events[selectedEvent].geometries[0].coordinates[1]]}
+            >
+              <div>
+                <h1>{data.events[selectedEvent].title}</h1>
+              </div>
+            </Popup>
+          ) : (null)
+        }
       </Map>
       </div>
     </div>
   )
 }
-
+//how to stop the refresh, how to add 4th order of ternary
 {/* { (listOfEvents.wildfires.indexOf(event) !== -1) ? (<FontAwesomeIcon icon={faFire} />) : (<FontAwesomeIcon icon={faMountain} />)} */}
-export default Earthquackes
+export default Events
