@@ -18,7 +18,7 @@ function Earthquackes () {
       //apply filter here
       const dodo = results.data.events.filter(event => typeof(event.geometries[0].coordinates[0] === 'number'))
       setData(results.data)
-      console.log(results)
+      console.log(dodo)
       const tempArrWildfire = []
       const tempArrVolcanoes = []
       const temArrAllEvents = []
@@ -44,11 +44,12 @@ function Earthquackes () {
       'pk.eyJ1Ijoic2Vwc2FyIiwiYSI6ImNrMzV1cDBlaTBtZTMzY3BlMGtxZHgxbDgifQ.BAO2QYMsaX-CmTanG19_GQ'
   });
 
-  listOfEvents && console.log(listOfEvents.allEvents)
-  data && data.events.forEach( event => {
-    console.log(typeof(event.geometries[0].coordinates[0]))
-  })
-
+  // listOfEvents && console.log(listOfEvents.allEvents)
+  // data && data.events.forEach( event => {
+  //   if (typeof(event.geometries[0].coordinates[0]) !== 'number') 
+  //     console.log(event)
+  // })
+  
   return (
     <div>
       <div className={styles['map-wrapper']}>
