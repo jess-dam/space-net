@@ -12,58 +12,44 @@ function Urgent () {
 
   useEffect(() => {
     const fetchData = async () => {
-      const solarFlareResults = await axios(
-        'https://api.nasa.gov/DONKI/FLR?startDate=2019-11-10&endDate=2019-11-20&api_key=Enoih2fwvokMm0hHR3AwXnV4vw1I3tamZ6GBM5O4'
-      )
-      setSolarFlare(solarFlareResults.data)
-      console.log(solarFlareResults)
-
-      const geomagneticStormResults = await axios(
-        'https://api.nasa.gov/DONKI/GST?startDate=2019-11-10&endDate=2019-11-20&api_key=Enoih2fwvokMm0hHR3AwXnV4vw1I3tamZ6GBM5O4'
-      )
-      setGeomagneticStorm(geomagneticStormResults.data)
-      console.log(geomagneticStormResults)
-
-      const notificationsResults = await axios(
+      const notificationsApiResponse = await axios(
         'https://api.nasa.gov/DONKI/notifications?startDate=2019-11-10&endDate=2019-11-20&type=all&api_key=Enoih2fwvokMm0hHR3AwXnV4vw1I3tamZ6GBM5O4'
       )
 
-      for (let i = 0; i < 7; i++) {
-        const messageBodyArray = notificationsResults.data[i].messageBody.split("##")
-        console.log(messageBodyArray)
-        messageBodyArray.map(messageItem => {
-          if (messageItem.includes("Summary:")) {
-            console.log(messageItem + "  __MESSAGE ITEM")
-            const summaryItem = messageItem.slice()
-            console.log(summaryItem + "  __SUMMARY ITEM")
-            setInformationResults(informationResults => [...informationResults, summaryItem])
+      const notificationData = [...notificationsApiResponse.data]
+      Array.isArray(notificationData)
+
+      notificationData.map(notification => {
+        let summaryItem = notification.messageBody.split("##")
+        summaryItem.filter(summaryElement => {
+          if (summaryElement.includes("Summary:")) {
+            notification.messageBody = summaryElement
+            console.log(notification.messageBody)
           }
         })
-      }
+      })
 
-      setNotificationsResults(notificationsResults.data)
+      console.log(notificationData)
+
+      setNotificationsResults(notificationData)
+
     }   
 
     fetchData()
 
   }, [])
 
-  console.log(informationResults)
-
   return (
     <div>
       <h1>Notifications</h1>
+    
       {
-        notificationsResults && notificationsResults.map(notificationResult => (
+        notificationsResults && notificationsResults.map(notificationData => (
           <>
             <UrgentInformationBox
-              messageType = {notificationResult.messageType}
-              timeOccurred = {notificationResult.messageIssueTime}
-              // information = {notificationResult.messageBody}
-              information = {notificationResult.messageBody.slice(
-                notificationResult.messageBody.indexOf("## Summary:") + 11,
-                notificationResult.messageBody.indexOf(("##Events"))
-              )}
+              messageType = {notificationData.messageType}
+              timeOccurred = {notificationData.messageIssueTime}
+              information = {notificationData.messageBody}
             />
           </>
         ))

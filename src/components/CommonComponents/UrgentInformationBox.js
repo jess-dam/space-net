@@ -1,6 +1,6 @@
 import React from 'react'
 
-function UrgentInformationBox ({ notificationsResults, messageType, timeOccurred, information }) {
+function UrgentInformationBox ({ messageType, timeOccurred, information }) {
 
     return (
 
