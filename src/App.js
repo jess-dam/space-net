@@ -12,6 +12,7 @@ import Asteroids from './components/Content/Asteroids/Asteroids'
 import Urgent from './components/Content/Urgent/Urgent'
 import Apod from './components/Content/Apod/Apod'
 import Eonet from './components/Content/Eonet/Eonet'
+import LandingPage from './components/LandingPage/LandingPage'
 
 
 
@@ -19,8 +20,9 @@ function App() {
   return (
     <div>
       <Router>
-        <Navbar />
+          <Navbar />
         <Switch>
+          {/* <Route exact path="/"><LandingPage /></Route> */}
           <Route path="/homePage"><HomePage /></Route>
           <Route path="/mars"><Mars /></Route>
           <Route path="/asteroids"><Asteroids /></Route>
