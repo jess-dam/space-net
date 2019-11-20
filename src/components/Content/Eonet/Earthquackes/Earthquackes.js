@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import ReactMapboxGl, { Layer, Feature, Marker } from 'react-mapbox-gl';
+import ReactMapboxGl, { Layer, Feature, Marker, Popup } from 'react-mapbox-gl';
 import styles from './../../CSS/Eonet.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFire, faMountain } from '@fortawesome/free-solid-svg-icons'
+import { faFire, faMountain, faIgloo, faWind } from '@fortawesome/free-solid-svg-icons'
 import Volcanoes from '../Volcanoes/Volcanoes';
+import uuid from 'react-uuid'
 
 function Earthquackes () {
   const [data, setData] = useState(null)
   const [listOfEvents, setListOfEvents] = useState(null)
+  const [selectedEvent, setSelectedEvent] = useState(null)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,6 +25,8 @@ function Earthquackes () {
       const tempArrWildfire = []
       const tempArrVolcanoes = []
       const temArrAllEvents = []
+      const tempArrIcebergs = []
+      const tempArrStorms = []
       for ( let i = 0; i < results.data.events.length; i ++) {
         if (typeof(results.data.events[i].geometries[0].coordinates[0]) === 'number') {
           temArrAllEvents.push(i)
@@ -31,13 +35,19 @@ function Earthquackes () {
           tempArrWildfire.push(i)
         } else if (results.data.events[i].categories[0].title === 'Volcanoes' && typeof(results.data.events[i].geometries[0].coordinates[0]) === 'number') {
           tempArrVolcanoes.push(i)
+        } else if (results.data.events[i].categories[0].title === 'Sea and Lake Ice' && typeof(results.data.events[i].geometries[0].coordinates[0]) === 'number') {
+          tempArrIcebergs.push(i)
+        } else if (results.data.events[i].categories[0].title === 'Severe Storms' && typeof(results.data.events[i].geometries[0].coordinates[0]) === 'number') {
+          tempArrStorms.push(i)
         }
       }
       console.log(temArrAllEvents)
       setListOfEvents({
         allEvents: [...temArrAllEvents],
         wildfires: [...tempArrWildfire],
-        volcanoes: [...tempArrVolcanoes]
+        volcanoes: [...tempArrVolcanoes],
+        icebergs: [...tempArrStorms],
+        storms: [...tempArrStorms]
       })
     }
     fetchData()
@@ -67,11 +77,18 @@ function Earthquackes () {
         {
           data && listOfEvents && listOfEvents.allEvents.map(event => 
             <Marker
-              key={event}
+              key={uuid()}
               coordinates={[data.events[event].geometries[0].coordinates[0], data.events[event].geometries[0].coordinates[1]]}
             >
-              { (listOfEvents.wildfires.indexOf(event) !== -1) ? (<FontAwesomeIcon icon={faFire} />) : (<FontAwesomeIcon icon={faMountain} />)}
-            </Marker>  
+              <button
+                onClick={(e) => {
+                  e.preventDefault()
+                  setSelectedEvent(event)
+                }}
+              >
+                <FontAwesomeIcon icon={faFire} />
+              </button>
+            </Marker>
           )
         }
       </Map>
@@ -80,4 +97,5 @@ function Earthquackes () {
   )
 }
 
+{/* { (listOfEvents.wildfires.indexOf(event) !== -1) ? (<FontAwesomeIcon icon={faFire} />) : (<FontAwesomeIcon icon={faMountain} />)} */}
 export default Earthquackes
