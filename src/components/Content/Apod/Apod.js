@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import YouTube from 'react-youtube'
+import styles from './../CSS/Apod.module.css'
 
 function Apod () {
   const [data, setData] = useState(null)
@@ -11,6 +12,7 @@ function Apod () {
       autoplay: 1
     }
   }
+  const [fullText, setFulltext] = useState(false)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,28 +24,32 @@ function Apod () {
     }
     fetchData()
   }, [])
+
+
   return (
     <div>
       {
         data && (
-          <div>
-            <h1>Astronomy Picture of The Day</h1>
-            <h3>Today is {data.date}</h3>
-            <h2>{data.title}</h2>
-            {/* add a feature to expand the full text on the click */}
-            <h4>{data.explanation}</h4>
-            <p></p>
-            {
-              (data && data.media === 'video') 
-              ? (<YouTube
-                    videoId={data.url.split('/')[(data.url.split('/').length - 1)]}
-                    opts={opts}
-                  />) 
-              : (<img 
-                  src={data.url}
-                ></img>)
-            }
-
+          <div className={styles['wrapper']}>
+            <div className={styles['info']}>
+              <h1>Astronomy Picture of The Day</h1>
+              <h3>Today is {data.date}</h3>
+              <h2>{data.title}</h2>
+              {/* add a feature to expand the full text on the click */}
+              <h4>{data.explanation}</h4>
+            </div>
+            <div className={styles['picture']}>
+              {
+                (data && data.media === 'video') 
+                ? (<YouTube
+                      videoId={data.url.split('/')[(data.url.split('/').length - 1)]}
+                      opts={opts}
+                    />) 
+                : (<img 
+                    src={data.url}
+                  ></img>)
+              }
+            </div>
           </div>
         )
       }
