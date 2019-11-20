@@ -12,6 +12,7 @@ function Apod () {
       autoplay: 1
     }
   }
+  const [fullText, setFulltext] = useState(false)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,6 +24,8 @@ function Apod () {
     }
     fetchData()
   }, [])
+
+
   return (
     <div>
       {
