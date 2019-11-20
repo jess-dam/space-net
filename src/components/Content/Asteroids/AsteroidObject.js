@@ -1,7 +1,7 @@
 import React from 'react'
 
 function AsteroidObject({ data, date }){
-    console.log(data, date)
+    // console.log(data, date)
     return(
         <>
             {

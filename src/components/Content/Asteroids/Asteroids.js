@@ -1,10 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import AsteroidObject from './AsteroidObject'
+import moment from 'moment'
 
 function Asteroids () {
   const [data, setData] = useState(null)
   const asteroidDates = []
+
+  const today = new Date()
+  let todayStr = `${today.getFullYear()}-${today.getMonth()}-${today.getDay()}`
+  const yesterday = moment().tz('America/New_York').format()
+  console.log(yesterday)
+
+
   useEffect(() => {
     const fetchData = async () => {
       const results = await axios(
@@ -16,7 +24,7 @@ function Asteroids () {
         asteroidDates.push(date)
       }
 
-      console.log(asteroidDates)
+      // console.log(asteroidDates)
     }
     fetchData()
   }, [])
