@@ -28,7 +28,7 @@ function Urgent () {
         'https://api.nasa.gov/DONKI/notifications?startDate=2019-11-10&endDate=2019-11-20&type=all&api_key=Enoih2fwvokMm0hHR3AwXnV4vw1I3tamZ6GBM5O4'
       )
 
-      for (let i = 0; i < 10; i++) {
+      for (let i = 0; i < 7; i++) {
         const messageBodyArray = notificationsResults.data[i].messageBody.split("##")
         console.log(messageBodyArray)
         messageBodyArray.map(messageItem => {
@@ -36,7 +36,7 @@ function Urgent () {
             console.log(messageItem + "  __MESSAGE ITEM")
             const summaryItem = messageItem.slice()
             console.log(summaryItem + "  __SUMMARY ITEM")
-            setInformationResults([...informationResults, summaryItem])
+            setInformationResults(informationResults => [...informationResults, summaryItem])
           }
         })
       }
