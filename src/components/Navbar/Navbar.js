@@ -8,7 +8,7 @@ function Navbar () {
   return (
     <div className={styles['body']}>
       <div className={styles['logo-wrapper']}>
-        <p className={styles['logo']}>LOGO HERE</p>
+      <Link className={styles['logo']} to="/homePage"><p></p></Link>
       </div>
       <div className={styles['navbar']}>
       <Link to="/homePage">
