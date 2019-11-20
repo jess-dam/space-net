@@ -3,18 +3,24 @@ import axios from 'axios'
 import AsteroidObject from './AsteroidObject'
 import moment from 'moment'
 
+import { getDates } from '../../../actions/Actions'
+
 function Asteroids () {
   const [data, setData] = useState(null)
   const asteroidDates = []
 
-  const today = new Date()
-  let todayStr = `${today.getFullYear()}-${today.getMonth()}-${today.getDay()}`
-  const yesterday = moment().tz('America/New_York').format()
-  console.log(yesterday)
+  // const today = new Date()
+  // let todayStr = `${today.getFullYear()}-${today.getMonth()}-${today.getDay()}`
+  // const yesterday = moment().tz('America/New_York').format()
+  // console.log(yesterday)
+
+  var moment = require('moment');
+
 
 
   useEffect(() => {
     const fetchData = async () => {
+
       const results = await axios(
         'https://api.nasa.gov/neo/rest/v1/feed?start_date=2019-11-10&end_date=2019-11-17&api_key=Enoih2fwvokMm0hHR3AwXnV4vw1I3tamZ6GBM5O4'
       )

@@ -3,3 +3,11 @@ export const update = () =>{
       type: 'UPDATE'
   }
 }
+
+export const getDates = () => {
+
+  return {
+    type: 'GET_DATES'
+  }
+}
+
