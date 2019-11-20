@@ -16,20 +16,24 @@ function Earthquackes () {
         'https://eonet.sci.gsfc.nasa.gov/api/v2.1/events'
       )
       //apply filter here
-      const dodo = results.data.events.filter(event => typeof(event.geometries[0].coordinates[0] === 'number'))
+      // const dodo = results.data.events.filter(event => typeof(event.geometries[0].coordinates[0] !== 'number'))
+      // console.log(dodo)
       setData(results.data)
-      console.log(dodo)
+      console.log(results.data)
       const tempArrWildfire = []
       const tempArrVolcanoes = []
       const temArrAllEvents = []
       for ( let i = 0; i < results.data.events.length; i ++) {
-        temArrAllEvents.push(i)
-        if (results.data.events[i].categories[0].title === 'Wildfires') {
+        if (typeof(results.data.events[i].geometries[0].coordinates[0]) === 'number') {
+          temArrAllEvents.push(i)
+        }
+        if (results.data.events[i].categories[0].title === 'Wildfires' && typeof(results.data.events[i].geometries[0].coordinates[0]) === 'number') {
           tempArrWildfire.push(i)
-        } else if (results.data.events[i].categories[0].title === 'Volcanoes') {
+        } else if (results.data.events[i].categories[0].title === 'Volcanoes' && typeof(results.data.events[i].geometries[0].coordinates[0]) === 'number') {
           tempArrVolcanoes.push(i)
         }
       }
+      console.log(temArrAllEvents)
       setListOfEvents({
         allEvents: [...temArrAllEvents],
         wildfires: [...tempArrWildfire],
@@ -44,10 +48,10 @@ function Earthquackes () {
       'pk.eyJ1Ijoic2Vwc2FyIiwiYSI6ImNrMzV1cDBlaTBtZTMzY3BlMGtxZHgxbDgifQ.BAO2QYMsaX-CmTanG19_GQ'
   });
 
-  // listOfEvents && console.log(listOfEvents.allEvents)
-  // data && data.events.forEach( event => {
-  //   if (typeof(event.geometries[0].coordinates[0]) !== 'number') 
-  //     console.log(event)
+  // data && listOfEvents && console.log(listOfEvents.allEvents)
+  // data && listOfEvents && listOfEvents.allEvents.forEach( event => {
+  //   if (typeof(event.geometries[0].coordinates[0]) === 'number') 
+  //     console.log(event.geometries[0].coordinates[0])
   // })
   
   return (
@@ -61,26 +65,15 @@ function Earthquackes () {
         }}
       > 
         {
-          data && listOfEvents && data.events.map(event => 
+          data && listOfEvents && listOfEvents.allEvents.map(event => 
             <Marker
               key={event}
-              coordinates={[event.geometries[0].coordinates[0], event.geometries[0].coordinates[1]]}
+              coordinates={[data.events[event].geometries[0].coordinates[0], data.events[event].geometries[0].coordinates[1]]}
             >
-              {/* { (listOfEvents.wildfires.indexOf !== -1) ? (<FontAwesomeIcon icon={faFire} />) : (<FontAwesomeIcon icon={faMountain} />)} */}
-              <FontAwesomeIcon icon={faFire} />
+              { (listOfEvents.wildfires.indexOf(event) !== -1) ? (<FontAwesomeIcon icon={faFire} />) : (<FontAwesomeIcon icon={faMountain} />)}
             </Marker>  
           )
         }
-        {/* {
-          data && listOfEvents && listOfEvents.volcanoes.map(event => 
-            <Marker
-              key={event}
-              coordinates={[data.events[event].geometries['0'].coordinates[0], data.events[event].geometries['0'].coordinates[1]]}
-            >
-              <FontAwesomeIcon icon={faMountain} />
-            </Marker>  
-          )
-        } */}
       </Map>
       </div>
     </div>
@@ -88,21 +81,3 @@ function Earthquackes () {
 }
 
 export default Earthquackes
-{/* <Layer type="symbol" id="marker" layout={{ 'icon-image': 'volcano-15' }}>
-  {
-    data && listOfEvents && listOfEvents.wildfires.map(event =>
-      <Feature 
-        key={event}
-        coordinates={[data.events[event].geometries['0'].coordinates[0], data.events[event].geometries['0'].coordinates[1]]}
-      />
-    )
-  }
-  {
-    data && listOfEvents && listOfEvents.volcanoes.map(event =>
-      <Feature 
-        key={event}
-        coordinates={[data.events[event].geometries['0'].coordinates[0], data.events[event].geometries['0'].coordinates[1]]}
-      />
-    )
-  }
-</Layer> */}
