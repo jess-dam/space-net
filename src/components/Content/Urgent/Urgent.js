@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import UrgentInformationBox from './../../CommonComponents/UrgentInformationBox'
 
+import { useSelector, useDispatch } from 'react-redux'
+
 function Urgent () {
 
   const [data, setData] = useState()
@@ -9,10 +11,13 @@ function Urgent () {
   const [geomagneticStorm, setGeomagneticStorm] = useState()
   const [notificationsResults, setNotificationsResults] = useState()
 
+  const dateState = useSelector(storeState => storeState)
+  console.log(dateState)
+
   useEffect(() => {
     const fetchData = async () => {
       const notificationsApiResponse = await axios(
-        'https://api.nasa.gov/DONKI/notifications?startDate=2019-11-10&endDate=2019-11-20&type=all&api_key=Enoih2fwvokMm0hHR3AwXnV4vw1I3tamZ6GBM5O4'
+        `https://api.nasa.gov/DONKI/notifications?startDate=${dateState.sevenDaysAgo}&endDate=${dateState.today}&type=all&api_key=Enoih2fwvokMm0hHR3AwXnV4vw1I3tamZ6GBM5O4`
       )
 
       const notificationData = [...notificationsApiResponse.data] // entire notification array of objects
@@ -28,7 +33,7 @@ function Urgent () {
 
       setNotificationsResults(notificationData)
 
-    }   
+    }
 
     fetchData()
 
@@ -37,7 +42,7 @@ function Urgent () {
   return (
     <div>
       <h1>Notifications</h1>
-    
+
       {
         notificationsResults && notificationsResults.map(notificationData => (
           <>

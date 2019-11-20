@@ -3,11 +3,16 @@ import axios from 'axios'
 import AsteroidObject from './AsteroidObject'
 import moment from 'moment'
 
-import { getDates } from '../../../actions/Actions'
+import { useSelector, useDispatch } from 'react-redux'
 
 function Asteroids () {
   const [data, setData] = useState(null)
   const asteroidDates = []
+  const dateState = useSelector(storeState => storeState)
+  console.log(dateState)
+  console.log(dateState.sevenDaysAgo)
+
+
 
   // const today = new Date()
   // let todayStr = `${today.getFullYear()}-${today.getMonth()}-${today.getDay()}`
@@ -22,7 +27,7 @@ function Asteroids () {
     const fetchData = async () => {
 
       const results = await axios(
-        'https://api.nasa.gov/neo/rest/v1/feed?start_date=2019-11-10&end_date=2019-11-17&api_key=Enoih2fwvokMm0hHR3AwXnV4vw1I3tamZ6GBM5O4'
+        `https://api.nasa.gov/neo/rest/v1/feed?start_date=2019-11-20&end_date=2019-11-13&api_key=Enoih2fwvokMm0hHR3AwXnV4vw1I3tamZ6GBM5O4`
       )
       setData(results.data)
       console.log(results)
