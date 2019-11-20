@@ -8,9 +8,9 @@ import { useSelector, useDispatch } from 'react-redux'
 function Asteroids () {
   const [data, setData] = useState(null)
   const asteroidDates = []
-  const dateState = useSelector(storeState => storeState)
-  console.log(dateState)
-  console.log(dateState.sevenDaysAgo)
+  // const dateState = useSelector(storeState => storeState)
+  // console.log(dateState)
+  // console.log(dateState.today)
 
 
 
@@ -21,13 +21,18 @@ function Asteroids () {
 
   var moment = require('moment');
 
+  const dateState = useSelector(storeState => storeState)
+
+  console.log(dateState)
+  console.log(dateState.dateReducer.today)
+
 
 
   useEffect(() => {
     const fetchData = async () => {
 
       const results = await axios(
-        `https://api.nasa.gov/neo/rest/v1/feed?start_date=2019-11-20&end_date=2019-11-13&api_key=Enoih2fwvokMm0hHR3AwXnV4vw1I3tamZ6GBM5O4`
+        `https://api.nasa.gov/neo/rest/v1/feed?start_date=${dateState.dateReducer.sevenDaysAgo}&end_date=${dateState.dateReducer.today}&api_key=Enoih2fwvokMm0hHR3AwXnV4vw1I3tamZ6GBM5O4`
       )
       setData(results.data)
       console.log(results)
