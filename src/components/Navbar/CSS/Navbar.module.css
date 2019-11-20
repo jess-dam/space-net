@@ -1,5 +1,6 @@
 .body {
     color: white;
+    min-height: 100px;
 }
 
 .logo-wrapper {
@@ -43,4 +44,5 @@
     min-width: 100vw;
     padding: 0 20vw;
     font-size: 2rem;
+    z-index: 2;
 }

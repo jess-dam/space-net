@@ -5,6 +5,8 @@ import styles from './../CSS/Apod.module.css'
 
 function Apod () {
   const [data, setData] = useState(null)
+  const [shortText, setShortText] = useState(null)
+
   const opts = {
     height: '390',
     width: '640',
@@ -21,22 +23,27 @@ function Apod () {
       )
       setData(results.data)
       console.log(results.data)
+      const tempText = results.data.explanation.substring(0, 70)
+      setShortText(tempText)
     }
     fetchData()
   }, [])
 
-
+  console.log(fullText)
   return (
     <div>
       {
         data && (
           <div className={styles['wrapper']}>
             <div className={styles['info']}>
-              <h1>Astronomy Picture of The Day</h1>
-              <h3>Today is {data.date}</h3>
-              <h2>{data.title}</h2>
-              {/* add a feature to expand the full text on the click */}
-              <h4>{data.explanation}</h4>
+              <div className={styles['test']}>
+                <h1>Astronomy Picture of The Day</h1>
+                <h3>Today is {data.date}</h3>
+                <h2>{data.title}</h2>
+                {
+                  (fullText) ? (<h4>{data.explanation}</h4>) : (<h4>{shortText}...(<button onClick={() => setFulltext(true)}>Click here to read more</button>)</h4>)
+                }
+              </div>
             </div>
             <div className={styles['picture']}>
               {
