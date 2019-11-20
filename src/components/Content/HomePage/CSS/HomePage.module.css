@@ -1,0 +1,12 @@
+.home-box{
+    display:grid;
+    grid-template-columns: 2fr 1fr;
+    background: black;
+    min-height: 100vh;
+}
+
+.mars-weather{
+    padding: 10px;
+    background: white;
+}
+
