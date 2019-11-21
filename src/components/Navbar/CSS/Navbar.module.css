@@ -39,15 +39,16 @@
 .navbar {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-around;
     background: rgba(30,30,30,30);
     opacity: 0.9;
     position: fixed;
     top: 100px;
     min-width: 100vw;
-    padding: 0 20vw;
+    padding: 0 30vw;
     font-size: 2rem;
     z-index: 2;
+
 }
 
 .navbar--hidden {

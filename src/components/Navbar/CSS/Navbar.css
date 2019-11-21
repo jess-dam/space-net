@@ -36,7 +36,7 @@
 .navbar {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     background: rgba(30,30,30,30);
     opacity: 0.9;
     position: fixed;

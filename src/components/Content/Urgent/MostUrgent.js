@@ -64,11 +64,8 @@ function MostUrgent () {
             )
 
           }
-
-
-
         <Button
-            variant='light'
+            variant='dark'
             onClick={() => {
               history.push('/urgent')
             }}
