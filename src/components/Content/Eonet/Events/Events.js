@@ -80,47 +80,54 @@ function Events () {
     }
   }
   return (
-    <div>
-      <Map
-        {...viewport}
-        style="mapbox://styles/mapbox/satellite-v8"
-        containerStyle={{
-          height: '100vh',
-          width: '100vw'
-        }}
-        >
-        {
-          data && listOfEvents && listOfEvents.allEvents.map(num =>
-            <Marker
+    <>
+      <div className={styles['map-wrapper']}>
+        <Map
+          {...viewport}
+          style="mapbox://styles/mapbox/satellite-v8"
+          containerStyle={{
+            height: '100vh',
+            width: '100vw'
+          }}
+          >
+          {
+            data && listOfEvents && listOfEvents.allEvents.map(num =>
+              <Marker
 
-            key={uuid()}
-            coordinates={[data.events[num].geometries[0].coordinates[0], data.events[num].geometries[0].coordinates[1]]}
-            >
-              <button
-
-                onClick={e => {
-                  e.preventDefault()
-                  setSelectedEvent(num)
-                }}
+              key={uuid()}
+              coordinates={[data.events[num].geometries[0].coordinates[0], data.events[num].geometries[0].coordinates[1]]}
               >
-                <FontAwesomeIcon icon={handleIconChoice(num)} />
-              </button>
-            </Marker>
-          )
-        }
-        {
-          selectedEvent ? (
-            <Popup
-            coordinates={[data.events[selectedEvent].geometries[0].coordinates[0], data.events[selectedEvent].geometries[0].coordinates[1]]}
-            >
-              <div>
-                <h1 className={styles['eonet-colours']}>{data.events[selectedEvent].title}</h1>
-              </div>
-            </Popup>
-          ) : (null)
-        }
-      </Map>
-    </div>
+                <button
+
+                  onClick={e => {
+                    e.preventDefault()
+                    setSelectedEvent(num)
+                  }}
+                >
+                  <FontAwesomeIcon icon={handleIconChoice(num)} />
+                </button>
+              </Marker>
+            )
+          }
+          {
+            selectedEvent ? (
+              <Popup
+              coordinates={[data.events[selectedEvent].geometries[0].coordinates[0], data.events[selectedEvent].geometries[0].coordinates[1]]}
+              >
+                <div>
+                  <h1 className={styles['eonet-colours']}>{data.events[selectedEvent].title}</h1>
+                </div>
+              </Popup>
+            ) : (null)
+          }
+
+        </Map>
+      </div>
+
+
+
+
+    </>
   )
 }
 
