@@ -1,8 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Bebas+Neue|Orbitron|Tomorrow|Ubuntu+Mono&display=swap');
+
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  color: white;
+
+
 }
 
 body{
@@ -12,3 +16,34 @@ body{
     background-attachment: fixed;
     background-repeat: no-repeat;
 }
+
+p{
+    font-family: 'Tomorrow', sans-serif;
+}
+
+h1{
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+}
+
+h2{
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+}
+
+h3{
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+}
+
+h4{
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+}
+
+h5{
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+}
+
+
