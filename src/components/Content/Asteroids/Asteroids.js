@@ -3,6 +3,8 @@ import axios from 'axios'
 import AsteroidObject from './AsteroidObject'
 import moment from 'moment'
 
+import { Button } from 'react-bootstrap'
+
 
 import { useSelector, useDispatch } from 'react-redux'
 
@@ -25,6 +27,8 @@ function Asteroids () {
   var moment = require('moment');
 
   const dateState = useSelector(storeState => storeState)
+  const [showDetails, setShowDetails] = useState([])
+
 
   console.log(dateState)
   console.log(dateState.dateReducer.today)
@@ -51,21 +55,35 @@ function Asteroids () {
   // data && data.near_earth_objects && (console.log(data.near_earth_objects[`2019-11-17`][0].name))
   return (
     <div className={styles['wrapper']}>
+    <h1>Asteroid Log</h1>
+    <div className={styles['outer-box']}>
+      <h3>Asteroids found over the last 7 days</h3>
       {
         data && data.near_earth_objects && Object.keys(data.near_earth_objects).map(date =>
-          <div >
-            <h1>{date}</h1>
-            <AsteroidObject
-              date={date}
-              data={data.near_earth_objects[`${date}`]}
-            />
-          </div>
-        )
-      }
-      </div>
+            <div className={styles['text-box']}>
+              <div className={styles['dates-box']}>
+                <h4>{date}</h4>
+              </div>
+
+                <div className={styles['details-box']}>
+                  <AsteroidObject
+                    date={date}
+                    data={data.near_earth_objects[`${date}`]}
+                  />
+                </div>
 
 
-  )
+                <br></br>
+                <br></br>
+
+            </div>
+          )
+        }
+        </div>
+        </div>
+
+
+)
 }
 
 export default Asteroids

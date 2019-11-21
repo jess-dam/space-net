@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Bebas+Neue|Orbitron|Tomorrow|Ubuntu+Mono&display=swap');
+
+
 .wrapper {
   margin: calc(3vh + 73px) 3vw;
 }
@@ -9,7 +12,37 @@ display:
 
 .text-box{
   display: grid;
-  grid-template-columns: 150px 1fr;
+  grid-template-columns: 300px 1fr;
 
+  /* padding: 100px; */
+}
+
+.details-box{
+  margin-top: 20px;
+  padding:50px;
+}
+
+.dates-box{
+  padding:10px;
+}
+
+.outer-box{
+   width: 80vw;
+  background-color: rgba(0.4,0.4,0.4,0.4);
+  padding: 50px
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.toggle-show{
+  color:white !important;
+  text-decoration: none;
+  font-family: 'Orbitron', sans-serif;
+  border: 5px solid white;
+  border-radius: 10px;
+  padding: 10px;
 }
 
