@@ -1,12 +1,25 @@
 .home-box{
     display:grid;
     grid-template-columns: 2fr 1fr;
-    background: black;
-    min-height: 100vh;
+    min-height: 70vh;
+    grid-gap: 50px;
+    margin: 50px;
+
 }
 
 .mars-weather{
-    padding: 10px;
-    background: white;
+    padding: 50px;
+    margin-top: 170px;
+    background: black;
+    opacity: 0.7;
+
+}
+
+.news-box{
+    margin-top: 170px;
+    color: white;
+    padding: 50px;
+    background: black;
+    opacity: 0.8;
 }
 
