@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import AsteroidObject from './AsteroidObject'
 import moment from 'moment'
-
+import styles from './../CSS/Asteroids.module.css'
 import { useSelector, useDispatch } from 'react-redux'
 
 function Asteroids () {

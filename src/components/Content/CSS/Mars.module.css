@@ -1,9 +1,18 @@
 .wrapper {
-    background-image: url('crater.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100vh;
     display: flex;
-    justify-content: space-between;
-    margin: calc(3vh + 73px) 3vw;
+    flex-direction: column;
+    margin: calc(3vh + 73px) 1vw;
+}
+
+.info {
+    background-image: url('marsicon.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 30vh;
+}
+
+.weather {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 10vh 0;
 }
