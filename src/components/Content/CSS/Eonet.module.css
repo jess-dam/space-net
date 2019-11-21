@@ -1,19 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Bebas+Neue|Orbitron|Tomorrow|Ubuntu+Mono&display=swap');
+
+
 .map-wrapper {
-    height: 100vh;
-    width: 100vw;
+    z-index: -1;
 }
 
-/* p{
-    color: black;
+.legend{
+    z-index: 10;
+    position: fixed;
+    min-width: 400px;
+    max-width: 600px;;
+    min-height: 300px;
+    background: rgba(0.7,0.7,0.7,0.5);
+    top: 180px;
+    left: 100px;
+    /* font-family: 'Tomorrow', sans-serif; */
+    padding: 50px;
 }
 
-p{
-    color: black;
+.header{
+    font-family: 'Orbiton',sans-serif;
 }
 
-h1{
-    color: black;
-} */
+
 
 .eonet-colours{
     color:black;
