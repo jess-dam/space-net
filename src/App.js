@@ -22,7 +22,7 @@ function App() {
       <Router>
           <Navbar />
         <Switch>
-          {/* <Route exact path="/"><LandingPage /></Route> */}
+          <Route exact path="/"><LandingPage /></Route>
           <Route path="/homePage"><HomePage /></Route>
           <Route path="/mars"><Mars /></Route>
           <Route path="/asteroids"><Asteroids /></Route>
