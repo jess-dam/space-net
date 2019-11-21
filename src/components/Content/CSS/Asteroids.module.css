@@ -1,0 +1,15 @@
+.wrapper {
+  margin: calc(3vh + 73px) 3vw;
+}
+
+/* .page-contents{
+display:
+
+} */
+
+.text-box{
+  display: grid;
+  grid-template-columns: 150px 1fr;
+
+}
+

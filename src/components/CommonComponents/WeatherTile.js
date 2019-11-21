@@ -6,36 +6,32 @@ function WeatherTile ({ solString, data }) {
   console.log(data)
   return (
     <div className={styles['border']}>
-      <h1>{data[sol].Last_UTC}</h1>
-      <div>
-        <svg width="163" height="127" viewBox="0 0 163 127" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="131.5" cy="32.5" r="31.5" fill="#F2EA23"/>
-          <ellipse cx="64.5" cy="63.5" rx="64.5" ry="63.5" fill="#A85D27"/>
-        </svg>
-      </div>
-      <h2>Sol: {sol}</h2>
+      <h5>Sol: {sol}</h5>
+      <h6>{data[sol].Last_UTC}</h6>
+        <div className={styles['desc']}>
+          <p>Temp:</p>
+          <p>Wind:</p>
+          <p>Press.:</p>
+        </div>
       <div className={styles['weather-details']}>
         <div>
-          <h4>Temp:</h4>
-          <p>Avg: {data[sol].AT.av}</p>
-          <p>Min: {data[sol].AT.mn}</p>
-          <p>Max: {data[sol].AT.mx}</p>
+          <p>Avg: {Math.round(data[sol].AT.av * 100)/100}</p>
+          <p>Min: {Math.round(data[sol].AT.mn * 100)/100}</p>
+          <p>Max: {Math.round(data[sol].AT.mx * 100)/100}</p>
         </div>
         {
           data[sol] && data[sol].HWS
             ? (
               <>
                 <div>
-                  <h4>Wind:</h4>
-                  <p>Av: {data[sol].HWS.av}</p>
-                  <p>Min: {data[sol].HWS.mn}</p>
-                  <p>Max: {data[sol].HWS.mx}</p>
+                  <p>{Math.round(data[sol].HWS.av * 100)/100}</p>
+                  <p>{Math.round(data[sol].HWS.mn * 100)/100}</p>
+                  <p>{Math.round(data[sol].HWS.mx * 100)/100}</p>
                 </div>
                 <div>
-                  <h4>Pressure:</h4>
-                  <p>Av: {data[sol].PRE.av}</p>
-                  <p>Min: {data[sol].PRE.mn}</p>
-                  <p>Max: {data[sol].PRE.mx}</p>
+                  <p>{Math.round(data[sol].PRE.av * 100)/100}</p>
+                  <p>{Math.round(data[sol].PRE.mn * 100)/100}</p>
+                  <p>{Math.round(data[sol].PRE.mx * 100)/100}</p>
                 </div>
               </>
             )
