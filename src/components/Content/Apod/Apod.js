@@ -42,7 +42,7 @@ function Apod () {
                 <h3>Today is {data.date}</h3>
                 <h2>{data.title}</h2>
                 {
-                  (fullText) ? (<h4>{data.explanation}</h4>) : (<h4>{shortText}...(<span onClick={() => setFulltext(true)}>Click here to read more</span>)</h4>)
+                  (fullText) ? (<h4>{data.explanation}</h4>) : (<h4>{shortText}...(<a onClick={() => setFulltext(true)}>Click here to read more</a>)</h4>)
                 }
               </div>
             </div>
