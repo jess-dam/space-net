@@ -17,8 +17,10 @@
 
 .weather {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     margin-top: 30vh ;
+    flex-wrap: wrap;
+    margin-top: -40px;
 }
 
 .layer1 img{
@@ -44,4 +46,18 @@
 
 h6{
     color: white;
+}
+
+.header{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    justify-content: center;
+    align-content: center;
+}
+
+.title{
+    font-size: 80px;
+    margin-top: 80px;
+    margin-left: 150px;
+    position: relative;
 }

@@ -32,11 +32,17 @@ function Mars () {
     <div className={styles['wrapper']}>
       {/* <div className={styles['info']}>
       </div> */}
-      <div ref={el => scene = el}  id="scene" className={styles['scene']}>
-      <div className={styles['layer2']} data-depth="0.6"><img ref={el => layerTwo = el} src={Moon}/></div>
-        <div className={styles['layer1']} data-depth="0.4"><img ref={el => layerOne = el}  src={Marss}/></div>
-        <div className={styles['layer3']} data-depth="0.2"><img ref={el => layerThree = el} src={Satellite}/></div>
+      <div className={styles['header']}>
+        <div ref={el => scene = el}  id="scene" className={styles['scene']}>
+        <div className={styles['layer2']} data-depth="0.6"><img ref={el => layerTwo = el} src={Moon}/></div>
+          <div className={styles['layer1']} data-depth="0.4"><img ref={el => layerOne = el}  src={Marss}/></div>
+          <div className={styles['layer3']} data-depth="0.2"><img ref={el => layerThree = el} src={Satellite}/></div>
+        </div>
+
+        <h1 className={styles['title']}>Mars Weather</h1>
       </div>
+
+
       <div className={styles['weather']}>
       {
         data && data.sol_keys.map(sol =>
