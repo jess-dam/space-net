@@ -3,7 +3,7 @@
     width: 100vw;
 }
 
-p{
+/* p{
     color: black;
 }
 
@@ -13,4 +13,12 @@ p{
 
 h1{
     color: black;
+} */
+
+.eonet-colours{
+    color:black;
+}
+
+*{
+    color: black
 }

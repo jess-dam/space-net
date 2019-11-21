@@ -51,3 +51,15 @@
 .navbar--hidden {
     top: 100px;
 }
+
+h4:hover{
+    text-shadow: #f423a3 2px 2px 2px !important;
+
+}
+
+a:hover{
+    text-decoration: none !important;
+    transform: scale(1.1) !important;
+}
+
+
