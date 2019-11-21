@@ -27,7 +27,6 @@ function Urgent () {
           }
         })
       })
-
       setNotificationsResults(notificationData)
 
     }

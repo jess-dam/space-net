@@ -4,6 +4,9 @@ import styles from './CSS/Urgent.module.css'
 function UrgentInformationBox ({ messageType, timeOccurred,
   information }) {
 
+    let notificationDate = timeOccurred.slice(0,10)
+    let notificationTime = timeOccurred.slice(11,16)
+
   return (
 
     <div
@@ -13,7 +16,7 @@ function UrgentInformationBox ({ messageType, timeOccurred,
       <h1
         id = {styles['notificationTitle']}
       >
-        Notifications
+        Message received on {notificationDate}
       </h1>
 
       <p
@@ -25,17 +28,16 @@ function UrgentInformationBox ({ messageType, timeOccurred,
       <p
         className = {styles['notificationElement']}
       >
-        Time occurred: {timeOccurred}
+        Time occurred: {notificationTime}
       </p>
 
       <p
         className = {styles['notificationElement']}
       >
-        Information: {information}
+        {information}
       </p><br  />
 
     </div>
-
   )
 
 }

@@ -1,5 +1,9 @@
 .wrapper {
     margin: calc(3vh + 73px) 3vw;
+    background-color: black;
+    padding: 10px;
+    background: rgba(30,30,30,30);
+    opacity: 0.9;
 }
 
 #notificationTitle {
