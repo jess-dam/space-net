@@ -44,11 +44,11 @@ function MostUrgent () {
 
 
           <>
-            <UrgentInformationBox
+            {/* <UrgentInformationBox
               messageType = {notificationData.messageType}
               timeOccurred = {notificationData.messageIssueTime}
               information = {notificationData.messageBody}
-            />
+            /> */}
           </>
 
         <Button
