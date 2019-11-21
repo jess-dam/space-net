@@ -25,7 +25,7 @@ function MarsMostRecent() {
       {
         data && data[data.sol_keys[0]] &&(
             <>
-                <h4>Sol {data.sol_keys[0]}</h4>
+                {/* <h4>Sol {data.sol_keys[0]}</h4> */}
                 <WeatherTile
                 key={data.sol_keys[0]}
                 solString={data.sol_keys[0]}
