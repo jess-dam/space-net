@@ -12,7 +12,7 @@ display:
 
 .text-box{
   display: grid;
-  grid-template-columns: 300px 1fr;
+  grid-template-columns: 1fr 3fr;
 
   /* padding: 100px; */
 }
@@ -27,10 +27,18 @@ display:
 }
 
 .outer-box{
-   width: 80vw;
-   background: rgba(30,30,30,30);
-   opacity: 0.9;
-   padding: 50px
+  width: 80vw;
+  background: rgba(30,30,30,30);
+  opacity: 0.9;
+  padding: 50px;
+  max-width: 750px;
+
+}
+
+.two-sectioned{
+  display: flex;
+  flex-wrap: row-reverse;
+  justify-content: space-around;
 }
 
 a {
@@ -45,5 +53,24 @@ a {
   border: 5px solid white;
   border-radius: 10px;
   padding: 10px;
+}
+
+.diagram-box{
+  width: 700px;
+  height: 500px;
+  background: rgba(30,30,30,30);
+  opacity: 0.9;
+  /* border: 5px solid rgba(30,30,30,30); */
+}
+
+.earth{
+  margin-top: 150px;
+  margin-left: -350px;
+  min-width: 127px;
+  min-height: 700px;
+  background-image: url('planet-earth-pngrepo-com.png');
+  background-size: cover 127px 127px;
+  background-position: top;
+  background-repeat: no-repeat;
 }
 

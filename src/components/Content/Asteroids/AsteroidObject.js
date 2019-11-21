@@ -29,7 +29,7 @@ function AsteroidObject({ data, date }){
                     )
                 :
 
-                <a className={styles['toggle-show']} onClick={() => {setShowAsteroids(true)}}>Click here to see asteroids spotted on this date</a>
+                <a className={styles['toggle-show']} onClick={() => {setShowAsteroids(true)}}>Click here to see asteroids</a>
             }
 
         </>
