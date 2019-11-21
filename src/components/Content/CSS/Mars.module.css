@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     margin: calc(3vh + 73px) 1vw;
+    position: relative;
 }
 
 .info {
@@ -9,6 +10,9 @@
     background-size: contain;
     background-repeat: no-repeat;
     height: 30vh;
+    position: relative;
+    left: 5vw;
+    top: 2vh;
 }
 
 .weather {

@@ -13,11 +13,17 @@
 }
 
 .test {
-  border: 2px solid black;
   padding: 1vh 1vw;
+  background-color: black;
+  opacity: 0.7;
 }
 
 .picture img {
   max-width: 43vw;
+  padding: 10px 10px;
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
+.span:hover {
+  cursor: pointer;
+}
