@@ -2,19 +2,13 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import UrgentInformationBox from './../../CommonComponents/UrgentInformationBox'
 
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 function Urgent () {
 
-  const [data, setData] = useState()
-  const [solarFlare, setSolarFlare] = useState()
-  const [geomagneticStorm, setGeomagneticStorm] = useState()
   const [notificationsResults, setNotificationsResults] = useState()
 
   const dateState = useSelector(storeState => storeState)
-  console.log(dateState)
-  console.log(dateState.dateReducer.today)
-
 
   useEffect(() => {
     const fetchData = async () => {
