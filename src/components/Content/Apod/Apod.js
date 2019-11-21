@@ -48,12 +48,12 @@ function Apod () {
             </div>
             <div className={styles['picture']}>
               {
-                (data && data.media === 'video') 
+                (data && data.media === 'video')
                 ? (<YouTube
                       videoId={data.url.split('/')[(data.url.split('/').length - 1)]}
                       opts={opts}
-                    />) 
-                : (<img 
+                    />)
+                : (<img
                     src={data.url}
                   ></img>)
               }
