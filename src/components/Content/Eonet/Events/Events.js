@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFire, faMountain, faIgloo, faWind, faQuestion } from '@fortawesome/free-solid-svg-icons'
 import uuid from 'react-uuid'
 
+
 function Events () {
   const [data, setData] = useState(null)
   const [listOfEvents, setListOfEvents] = useState(null)
@@ -59,12 +60,12 @@ function Events () {
     }
     window.addEventListener('keydown', listener)
   }, [])
-  
+
   const Map = ReactMapboxGl({
     accessToken:
       'pk.eyJ1Ijoic2Vwc2FyIiwiYSI6ImNrMzV1cDBlaTBtZTMzY3BlMGtxZHgxbDgifQ.BAO2QYMsaX-CmTanG19_GQ'
   });
-  
+
   const handleIconChoice = (num) => {
     if (listOfEvents.wildfires.indexOf(num) !== -1) {
       return faFire
@@ -87,14 +88,16 @@ function Events () {
           height: '100vh',
           width: '100vw'
         }}
-        > 
+        >
         {
-          data && listOfEvents && listOfEvents.allEvents.map(num => 
+          data && listOfEvents && listOfEvents.allEvents.map(num =>
             <Marker
+
             key={uuid()}
             coordinates={[data.events[num].geometries[0].coordinates[0], data.events[num].geometries[0].coordinates[1]]}
             >
               <button
+
                 onClick={e => {
                   e.preventDefault()
                   setSelectedEvent(num)
@@ -111,7 +114,7 @@ function Events () {
             coordinates={[data.events[selectedEvent].geometries[0].coordinates[0], data.events[selectedEvent].geometries[0].coordinates[1]]}
             >
               <div>
-                <h1>{data.events[selectedEvent].title}</h1>
+                <h1 className={styles['eonet-colours']}>{data.events[selectedEvent].title}</h1>
               </div>
             </Popup>
           ) : (null)
