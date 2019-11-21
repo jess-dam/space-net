@@ -18,6 +18,9 @@ function Mars () {
 
   return (
     <div className={styles['wrapper']}>
+      <div className={styles['info']}>
+      </div>
+      <div className={styles['weather']}>
       {
         data && data.sol_keys.map(sol =>
           <WeatherTile
@@ -27,6 +30,7 @@ function Mars () {
           />
           )
       }
+      </div>
     </div>
   )
 }

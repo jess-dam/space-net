@@ -21,9 +21,6 @@ function Events () {
       const results = await axios(
         'https://eonet.sci.gsfc.nasa.gov/api/v2.1/events'
       )
-      //apply filter here
-      // const dodo = results.data.events.filter(event => typeof(event.geometries[0].coordinates[0] !== 'number'))
-      // console.log(dodo)
       setData(results.data)
       console.log(results.data)
       const tempArrWildfire = []
@@ -45,7 +42,6 @@ function Events () {
           tempArrStorms.push(i)
         }
       }
-      console.log(temArrAllEvents)
       setListOfEvents({
         allEvents: [...temArrAllEvents],
         wildfires: [...tempArrWildfire],
@@ -71,10 +67,8 @@ function Events () {
   
   const handleIconChoice = (num) => {
     if (listOfEvents.wildfires.indexOf(num) !== -1) {
-      console.log('fire')
       return faFire
     } else if (listOfEvents.volcanoes.indexOf(num) !== -1) {
-      console.log('volcano')
       return faMountain
     } else if (listOfEvents.icebergs.indexOf(num) !== -1) {
       return faIgloo
