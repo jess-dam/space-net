@@ -3,20 +3,29 @@
     grid-template-columns: 2fr 1fr;
     min-height: 70vh;
     grid-gap: 50px;
-    margin: 50px;
+
 
 }
 
 .mars-weather{
     padding: 50px;
-    margin-top: 170px;
-
+    margin-top: -40px;
 }
 
 .news-box{
-    margin-top: 170px;
+    margin-top: 50px;
     color: white;
     padding: 50px;
+}
+
+.read-more{
+    float:right;
+}
+
+.main-title{
+    margin-top: 150px;
+    text-align: center;
+    font-size: 70px;
 }
 
 

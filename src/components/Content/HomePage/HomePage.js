@@ -7,6 +7,8 @@ import styles from './CSS/HomePage.module.css'
 
 function HomePage () {
   return (
+    <>
+    <h1 className={styles['main-title']}>Welcome to spaceNet</h1>
     <div className={styles['home-box']}>
       <div className={styles['news-box']}>
         <MostUrgent/>
@@ -16,6 +18,7 @@ function HomePage () {
         <MarsMostRecent/>
       </div>
     </div>
+    </>
   )
 }
 
