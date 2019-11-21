@@ -28,8 +28,9 @@ display:
 
 .outer-box{
    width: 80vw;
-  background-color: rgba(0.4,0.4,0.4,0.4);
-  padding: 50px
+   background: rgba(30,30,30,30);
+   opacity: 0.9;
+   padding: 50px
 }
 
 a {
