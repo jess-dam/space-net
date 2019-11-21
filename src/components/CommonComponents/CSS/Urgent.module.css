@@ -1,11 +1,11 @@
-/* .wrapper {
+.wrapper {
     margin: calc(3vh + 73px) 3vw;
 }
 
-p{
+#notificationTitle {
     color: white;
 }
 
-h1{
+.notificationElement {
     color: white;
-} */
+}

@@ -37,9 +37,7 @@ function Urgent () {
   }, [])
 
   return (
-    <div className={styles['wrapper']}>
-      <h1>Notifications</h1>
-
+    <>
       {
         notificationsResults && notificationsResults.map(notificationData => (
           <>
@@ -51,7 +49,7 @@ function Urgent () {
           </>
         ))
       }
-    </div>
+    </>
   )
 }
 
