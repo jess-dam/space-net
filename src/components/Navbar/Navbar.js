@@ -37,7 +37,7 @@ function Navbar () {
   let btnClass = classNames('navbar',{
     'navbar--hidden': !state.visible
   });
-//try to set how far we hide the navbar with regards to the scroll position 
+//try to set how far we hide the navbar with regards to the scroll position
   return (
     <div className={styles['body']}>
       <div className={styles['logo-wrapper']}>
@@ -45,22 +45,22 @@ function Navbar () {
       </div>
       <div className={btnClass}>
         <Link to="/homePage">
-          <p>HomePage</p>
+          <h4>HomePage</h4>
         </Link>
         <Link to="/mars">
-          <p>Mars</p>
+          <h4>Mars</h4>
         </Link>
         <Link to="/asteroids">
-          <p>Asteroids</p>
+          <h4>Asteroids</h4>
         </Link>
         <Link to="/urgent">
-          <p>Urgent</p>
+          <h4>Urgent</h4>
         </Link>
         <Link to="/apod">
-          <p>Apod</p>
+          <h4>Apod</h4>
         </Link>
         <Link to="/eonet">
-          <p>Eonet</p>
+          <h4>Eonet</h4>
         </Link>
       </div>
     </div>

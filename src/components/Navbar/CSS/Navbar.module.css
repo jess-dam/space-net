@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Bebas+Neue|Orbitron|Tomorrow|Ubuntu+Mono&display=swap');
+
 .body {
     color: white;
     min-height: 100px;
@@ -37,7 +39,7 @@
 .navbar {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     background: rgba(30,30,30,30);
     opacity: 0.9;
     position: fixed;
@@ -51,3 +53,4 @@
 .navbar--hidden {
     top: -23px;
 }
+
