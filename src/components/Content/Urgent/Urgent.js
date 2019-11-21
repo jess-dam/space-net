@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import UrgentInformationBox from './../../CommonComponents/UrgentInformationBox'
+import styles from './../CSS/Urgent.module.css'
 
 function Urgent () {
 
@@ -51,7 +52,7 @@ function Urgent () {
   console.log(informationResults)
 
   return (
-    <div>
+    <div className={styles['wrapper']}>
       <h1>Notifications</h1>
       {
         notificationsResults && notificationsResults.map(notificationResult => (
