@@ -37,8 +37,6 @@ function Urgent () {
 
   return (
     <div>
-      <h1>Notifications</h1>
-
       {
         notificationsResults && notificationsResults.map(notificationData => (
           <>
