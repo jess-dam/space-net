@@ -3,7 +3,10 @@ import axios from 'axios'
 import AsteroidObject from './AsteroidObject'
 import moment from 'moment'
 
+
 import { useSelector, useDispatch } from 'react-redux'
+
+import styles from '../CSS/Asteroids.module.css'
 
 function Asteroids () {
   const [data, setData] = useState(null)
@@ -50,13 +53,13 @@ function Asteroids () {
     <div className={styles['wrapper']}>
       {
         data && data.near_earth_objects && Object.keys(data.near_earth_objects).map(date =>
-          <>
+          <div >
             <h1>{date}</h1>
             <AsteroidObject
               date={date}
               data={data.near_earth_objects[`${date}`]}
             />
-          </>
+          </div>
         )
       }
       </div>
