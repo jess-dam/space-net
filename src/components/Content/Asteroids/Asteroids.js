@@ -47,7 +47,7 @@ function Asteroids () {
 
   // data && data.near_earth_objects && (console.log(data.near_earth_objects[`2019-11-17`][0].name))
   return (
-    <div>
+    <div className={styles['wrapper']}>
       {
         data && data.near_earth_objects && Object.keys(data.near_earth_objects).map(date =>
           <>

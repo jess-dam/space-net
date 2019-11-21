@@ -12,7 +12,6 @@
     min-width: 100vw;
     justify-items: center;
     align-items: center;
-    z-index: 3;
 }
 
 .logo {
@@ -46,8 +45,9 @@
     padding: 0 20vw;
     font-size: 2rem;
     z-index: 2;
+    transition: top 0.6s;
 }
 
 .navbar--hidden {
-    top: -23px;
+    top: 100px;
 }
