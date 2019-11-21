@@ -19,12 +19,19 @@
 .title{
     font-size: 100px;
     text-align: center;
+    position: relative;
+    top: 60vh;
+    opacity: 0;
 }
 
 .sub-text{
     font-size: 50px;
     text-align: center;
     padding: 50px;
+    position: relative;
+    top: 70vh;
+    left: 25vw;
+    opacity: 0;
 }
 
 .dropdown{
@@ -60,3 +67,54 @@
 
 }
 
+.layer1 img{
+    max-height: 100px;
+    position: relative;
+    top: 50vh;
+    left: 35vw;
+    opacity: 0;
+}
+
+.layer2 img{
+    max-height: 100px;
+    position: relative;
+    top: 60vh;
+    left: 90vw;
+    opacity: 0;
+}
+
+.layer3 img{
+    max-height: 200px;
+    position: relative;
+    top: 10vh;
+    left: 23vw;
+    opacity: 0;
+}
+
+.layer4 img{
+    max-height: 150px;
+    position: relative;
+    top: 12vh;
+    left: 75vw;
+    opacity: 0;
+
+}
+
+.background {
+    background-image: url(stars.jpg);
+    background-size: cover;
+    min-height: 100vh;
+}
+
+.scene {
+    position: relative;
+}
+
+.page-choice {
+    display: flex;
+    align-items: center;
+    position: relative;
+    top: 60vh;
+    left: 40vw;
+    opacity: 0;
+}
