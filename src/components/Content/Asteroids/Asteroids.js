@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import AsteroidObject from './AsteroidObject'
+import AsteroidsDiagram from './AsteroidsDiagram'
 import moment from 'moment'
 
-import { Button } from 'react-bootstrap'
 
 
 import { useSelector, useDispatch } from 'react-redux'
@@ -55,32 +55,45 @@ function Asteroids () {
   // data && data.near_earth_objects && (console.log(data.near_earth_objects[`2019-11-17`][0].name))
   return (
     <div className={styles['wrapper']}>
-    <h1>Asteroid Log</h1>
-    <div className={styles['outer-box']}>
-      <h3>Asteroids found over the last 7 days</h3>
-      {
-        data && data.near_earth_objects && Object.keys(data.near_earth_objects).map(date =>
-            <div className={styles['text-box']}>
-              <div className={styles['dates-box']}>
-                <h4>{date}</h4>
-              </div>
+      <h1>Asteroid Log</h1>
 
-                <div className={styles['details-box']}>
-                  <AsteroidObject
-                    date={date}
-                    data={data.near_earth_objects[`${date}`]}
-                  />
+        {/* <div className={styles['two-sectioned']}>
+          <div className={styles['diagram-box']}>
+            {
+              data && data.near_earth_objects && (
+                <AsteroidsDiagram
+                  data={data.near_earth_objects}
+                />
+              )
+            }
+          </div>*/}
+
+        <div className={styles['outer-box']}>
+          <h3>Asteroids found over the last 7 days</h3>
+
+          {
+            data && data.near_earth_objects && Object.keys(data.near_earth_objects).map(date =>
+              <div className={styles['text-box']}>
+                  <div className={styles['dates-box']}>
+                    <h4>{date}</h4>
+                  </div>
+
+                    <div className={styles['details-box']}>
+                      <AsteroidObject
+                        date={date}
+                        data={data.near_earth_objects[`${date}`]}
+                        />
+                    </div>
+                    <br></br>
+                    <br></br>
+
                 </div>
+              )
+            }
+          </div>
 
-
-                <br></br>
-                <br></br>
-
-            </div>
-          )
-        }
-        </div>
-        </div>
+        // </div>
+      // </div>
 
 
 )

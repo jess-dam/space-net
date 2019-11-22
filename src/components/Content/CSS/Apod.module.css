@@ -21,7 +21,8 @@
 .picture img {
   max-width: 43vw;
   padding: 10px 10px;
-  background-color: rgba(0, 0, 0, 0.7);
+  background: rgba(30,30,30,30);
+  opacity: 0.9;
 }
 
 
