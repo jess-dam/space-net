@@ -32,12 +32,14 @@ display:
   opacity: 0.9;
   padding: 50px;
   max-width: 750px;
+  margin: 20px;
 
 }
 
 .two-sectioned{
   display: flex;
-  flex-wrap: row-reverse;
+  flex-wrap: wrap;
+  flex-direction: row;
   justify-content: space-around;
 }
 
@@ -56,6 +58,7 @@ a {
 }
 
 .diagram-box{
+  margin-top: 20px;
   width: 700px;
   height: 500px;
   background: rgba(30,30,30,30);
@@ -64,7 +67,7 @@ a {
 }
 
 .earth{
-  margin-top: 150px;
+  margin-top: 190px;
   margin-left: -350px;
   min-width: 127px;
   min-height: 700px;

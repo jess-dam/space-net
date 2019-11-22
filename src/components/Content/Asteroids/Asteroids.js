@@ -56,10 +56,21 @@ function Asteroids () {
   return (
     <div className={styles['wrapper']}>
       <h1>Asteroid Log</h1>
-      <div className={styles['two-sectioned']}>
+
+        {/* <div className={styles['two-sectioned']}>
+          <div className={styles['diagram-box']}>
+            {
+              data && data.near_earth_objects && (
+                <AsteroidsDiagram
+                  data={data.near_earth_objects}
+                />
+              )
+            }
+          </div>*/}
 
         <div className={styles['outer-box']}>
           <h3>Asteroids found over the last 7 days</h3>
+
           {
             data && data.near_earth_objects && Object.keys(data.near_earth_objects).map(date =>
               <div className={styles['text-box']}>
@@ -80,11 +91,9 @@ function Asteroids () {
               )
             }
           </div>
-          <div className={styles['diagram-box']}>
-            <AsteroidsDiagram/>
-          </div>
-        </div>
-      </div>
+
+        // </div>
+      // </div>
 
 
 )
