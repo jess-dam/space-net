@@ -52,21 +52,23 @@ function Asteroids () {
     fetchData()
   }, [])
 
-  // data && data.near_earth_objects && (console.log(data.near_earth_objects[`2019-11-17`][0].name))
   return (
     <div className={styles['wrapper']}>
       <h1>Asteroid Log</h1>
 
-        {/* <div className={styles['two-sectioned']}>
+        <div className={styles['two-sectioned']}>
           <div className={styles['diagram-box']}>
-            {
+            <img src='https://www.washingtonpost.com/resizer/K6RppTqpzgI1ijeg_lHh7-VmDno=/767x0/smart/arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/U3XHF4GQUJGW3JCIPMYMMWL3EE.jpg'
+              width='700'
+            />
+            {/* {
               data && data.near_earth_objects && (
                 <AsteroidsDiagram
                   data={data.near_earth_objects}
                 />
               )
-            }
-          </div>*/}
+            } */}
+          </div>
 
         <div className={styles['outer-box']}>
           <h3>Asteroids found over the last 7 days</h3>
